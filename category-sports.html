@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Games | Play Free Online | zapcade</title>
+  <meta name="description" content="Play the best free Sports games online on zapcade. Page 1 of our curated collection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(22, 28, 45, 0.7);
+      --accent: #6c5ce7;
+      --accent-glow: rgba(108, 92, 231, 0.4);
+      --text-white: #ffffff;
+      --text-gray: #a0aec0;
+      --neon-green: #00f2fe;
+      --neon-pink: #ff007f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top, #1a1b36 0%, var(--bg-dark) 70%);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Top Navbar Styles */
+    .top-navbar {
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .top-nav-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .top-nav-logo span {
+      -webkit-text-fill-color: initial;
+    }
+
+    .top-nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-nav-item {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav-item:hover, .top-nav-item.active {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Dropdown Styles */
+    .top-nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .top-nav-dropdown-btn {
+      background: none;
+      border: none;
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .top-nav-dropdown-btn:hover, .top-nav-dropdown.active .top-nav-dropdown-btn {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .top-nav-dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: #111519;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      z-index: 1010;
+      padding: 8px 0;
+      margin-top: 5px;
+    }
+
+    .top-nav-dropdown-content a {
+      color: var(--text-gray);
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .top-nav-dropdown-content a:hover, .top-nav-dropdown-content a.active {
+      color: var(--text-white);
+      background: var(--accent);
+    }
+
+    .top-nav-dropdown:hover .top-nav-dropdown-content {
+      display: block;
+    }
+
+    /* Toggle button for Mobile */
+    .top-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1020;
+    }
+
+    .top-nav-toggle .toggle-bar {
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      padding: 15px 20px 8px;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      display: none;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Categories Navigation inside Footer */
+    .categories-nav {
+      padding: 15px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .categories-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .category-link {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .category-link:hover, .category-link.active {
+      color: var(--text-white);
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      box-shadow: 0 0 40px var(--accent-glow);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .thumbnail-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      background: #000;
+    }
+
+    .thumbnail-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover .thumbnail-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-white);
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .play-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--accent);
+      color: var(--text-white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+    }
+
+    .play-btn:hover {
+      background: #7d6ef9;
+      box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    }
+
+    .play-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .page-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .page-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .page-link.active {
+      background: var(--accent);
+      color: var(--text-white);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .page-link.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .page-arrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-gray);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav-toggle {
+        display: flex;
+      }
+
+      .top-nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 70px);
+        background: #0b0f19;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 30px 20px;
+        gap: 10px;
+        transition: right 0.3s ease;
+        z-index: 999;
+      }
+
+      .top-nav-menu.open {
+        right: 0;
+      }
+
+      .top-nav-item, .top-nav-dropdown-btn {
+        width: 100%;
+        text-align: left;
+        padding: 12px 15px;
+      }
+
+      .top-nav-dropdown-content {
+        position: static;
+        display: block;
+        background: rgba(255, 255, 255, 0.02);
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        margin-top: 0;
+        padding-left: 15px;
+      }
+
+      .top-nav-toggle.active .toggle-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(2) {
+        opacity: 0;
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+      .subtitle {
+        font-size: 0.8rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="top-navbar">
+    <div class="top-nav-container">
+      <a href="index.html" class="top-nav-logo">
+        <span>🎮</span> zapcade
+      </a>
+
+      <button class="top-nav-toggle" id="topNavToggle" aria-label="Toggle menu">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+      <div class="top-nav-menu" id="topNavMenu">
+        <a href="index.html" class="top-nav-item ">Home</a>
+        <a href="category-casual.html" class="top-nav-item ">Casual</a>
+        <a href="category-puzzle.html" class="top-nav-item ">Puzzle</a>
+        <a href="category-adventure.html" class="top-nav-item ">Adventure</a>
+        <a href="category-simulation.html" class="top-nav-item ">Simulation</a>
+        <a href="category-agility.html" class="top-nav-item ">Agility</a>
+        <a href="category-racing-driving.html" class="top-nav-item ">Racing & Driving</a>
+        <div class="top-nav-dropdown active">
+          <button class="top-nav-dropdown-btn">More ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="category-shooter.html" class="">Shooter</a>
+            <a href="category-battle.html" class="">Battle</a>
+            <a href="category-match-3.html" class="">Match-3</a>
+            <a href="category-dress-up.html" class="">Dress-up</a>
+            <a href="category-strategy.html" class="">Strategy</a>
+            <a href="category-io.html" class="">.IO</a>
+            <a href="category-merge.html" class="">Merge</a>
+            <a href="category-sports.html" class="active">Sports</a>
+            <a href="category-bubble-shooter.html" class="">Bubble Shooter</a>
+            <a href="category-mahjong-connect.html" class="">Mahjong & Connect</a>
+            <a href="category-educational.html" class="">Educational</a>
+            <a href="category-cards.html" class="">Cards</a>
+            <a href="category-boardgames.html" class="">Boardgames</a>
+            <a href="category-quiz.html" class="">Quiz</a>
+            <a href="category-football.html" class="">Football</a>
+            <a href="category-basketball.html" class="">Basketball</a>
+            <a href="category-care.html" class="">Care</a>
+            <a href="category-art.html" class="">Art</a>
+            <a href="category-cooking.html" class="">Cooking</a>
+          </div>
+        </div>
+        <div class="top-nav-dropdown ">
+          <button class="top-nav-dropdown-btn">About ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="contact.html" class="">Contact Us</a>
+            <a href="privacy.html" class="">Privacy Policy</a>
+            <a href="terms.html" class="">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Sports Games</h1>
+    <p class="subtitle">Play the best free Sports games online on zapcade. Page 1 of our curated collection.</p>
+  </header>
+
+    <!-- Dedicated Search Bar Row -->
+  <div class="search-bar-row">
+    <div class="search-bar-row-container">
+      <input type="text" id="searchInput" placeholder="Search for your favorite games..." autocomplete="off">
+      <div id="searchSuggestions" class="search-suggestions"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+            <!-- Card: Pool 8 -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/347.webp" alt="Pool 8 Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Pool 8</h2>
+          <p class="card-description">Pool 8 is a relaxing yet challenging billiards-style puzzle game where players must sink all the balls into the pockets in the correct order. The game follows a step-by-step movement system, requiring strategic planning to clear the table efficiently. With smooth mechanics and progressively difficult levels, Pool 8 offers a unique twist on classic pool gameplay, perfect for puzzle and strategy lovers.</p>
+          <div class="tag-container">
+            <span class="tag">Puzzle</span>
+<span class="tag">Sports</span>
+          </div>
+          <a href="pool-8.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: TapKO -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/478.webp" alt="TapKO Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">TapKO</h2>
+          <p class="card-description">One-tap fighter game. From the creators of Fruit Ninja and Jetpack Joyride, get ready to rumble with TapKO - the knockout idle game that packs a punch! Jab, bob, and weave your way to the top, and train your fighter to become the ultimate boxer.</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="tapko.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: HomeRun Derby -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/482.webp" alt="HomeRun Derby Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">HomeRun Derby</h2>
+          <p class="card-description">Step up to the plate and experience the excitement of Baseball's exhilarating Home Run Derby! Swing your bat and aim for the fences to hit as many home runs as you can. Time your swings carefully to score big points and keep the crowd cheering! How many home runs can you hit in a row? Test your skills and see if you can become the ultimate Home Run champion!</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+          </div>
+          <a href="homerun-derby.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Race It: Car Racing -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/537.webp" alt="Race It: Car Racing Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Race It: Car Racing</h2>
+          <p class="card-description">Play Race It: Car Racing free online and jump into a high-speed browser game you can play instantly with no download and no install. Challenge rivals in intense 1v1 city races, swipe to drift, time your boosts, and outsmart opponents in a skill-based brain game of reflex and control. This unblocked game loads fast and runs smoothly at school or home. Fully mobile-friendly and optimized for desktop and mobile, it’s a free online game built for quick breaks and nonstop racing action.</p>
+          <div class="tag-container">
+            <span class="tag">Racing & Driving</span>
+<span class="tag">Sports</span>
+          </div>
+          <a href="race-it-car-racing.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Archery Master - Bow and Arrow -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/546.webp" alt="Archery Master - Bow and Arrow Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Archery Master - Bow and Arrow</h2>
+          <p class="card-description">Join archery adventure and become a bowmaster! Aim, shoot and hit the bullseye!
+
+Pick your bow, defeat other archery masters and don’t let them take you down! Join in this fun and challenging adventure and have fun. Bow masters can really challenge your casual game skills but have no fear! If you enjoy bow and arrow games, then prepare to defeat other bow masters, earn coins, score, and become the ultimate bow master!</p>
+          <div class="tag-container">
+            <span class="tag">Shooter</span>
+<span class="tag">Sports</span>
+          </div>
+          <a href="archery-master-bow-and-arrow.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Volley Bean -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/576.webp" alt="Volley Bean Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Volley Bean</h2>
+          <p class="card-description">Volley Bean is a simple and easy to learn volleyball game. With simple controls and fast paced gameplay volleyball never been more entertaining. The variety of boosts spawn randomly on the screen doubles the fun.</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+          </div>
+          <a href="volley-bean.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Merge Muscle -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/581.webp" alt="Merge Muscle Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Merge Muscle</h2>
+          <p class="card-description">Create the most powerful gym, connect athletes!  A large gym is at your disposal. Your task is to get new athletes, combine similar ones to get more powerful athletes. The most powerful athletes can be taken to a boxing competition. You need to click as often and quickly as possible to defeat your opponent in a difficult battle.</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="merge-muscle.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Perfect Shot -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/635.webp" alt="Perfect Shot Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Perfect Shot</h2>
+          <p class="card-description">Step into Perfect Pocket, a unique puzzle game inspired by classic pool, but with a twist – you only get one shot to clear each level! Test your aim, plan your angles, and pocket all balls in a single move. 
+Game Highlights :- 
+One-Shot Levels: Every level challenges you to pocket all balls with just one shot. 
+Realistic Physics: Feel the true motion and collision of balls. Many Unique Levels: Each with different layouts and increasing difficulty.</p>
+          <div class="tag-container">
+            <span class="tag">Puzzle</span>
+<span class="tag">Sports</span>
+          </div>
+          <a href="perfect-shot.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Dummies World Cup -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/658.webp" alt="Dummies World Cup Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Dummies World Cup</h2>
+          <p class="card-description">Dummies World Cup is a fun HTML5 football game for all ages! Choose your favorite team from 32 national squads and control your silly dummy player on a mini soccer field. Score goals, enjoy simple controls, and have fast-paced football fun. Easy to play, perfect for kids and families!</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+          </div>
+          <a href="dummies-world-cup.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Golf Orbit -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/681.webp" alt="Golf Orbit Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Golf Orbit</h2>
+          <p class="card-description">One shot golf simulator is the battle of golf rivals to become the golf king worldwide. Become part of this idle golf orbit rocket league in which balls go high to Mars. Smash the ball to mars and become the golf champions.
+
+Oneshot Golf Orbit is golf offline game which has many golf rocket leagues and one shot golf battles. Be part Mars golf games to become champions of golfing over it.</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+<span class="tag">Casual</span>
+          </div>
+          <a href="golf-orbit.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Pool Master -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/688.webp" alt="Pool Master Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Pool Master</h2>
+          <p class="card-description">From a rookie with a cue to a legend of the table, journey through 100 challenging levels with closed pockets, special balls to clear and more. Unlock custom gear, gain special boosts and rule the table with precision and power.</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+          </div>
+          <a href="pool-master.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Skibronx Runner -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/699.webp" alt="Skibronx Runner Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Skibronx Runner</h2>
+          <p class="card-description">Make your way through the streets in this endless runner game while you encounter various challenges. In the level mode its your goal to reach the grocery store without losing. In the endless mode your goal is to reach as far as possible without losing.</p>
+          <div class="tag-container">
+            <span class="tag">Adventure</span>
+<span class="tag">Sports</span>
+          </div>
+          <a href="skibronx-runner.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Drive Ahead Sports -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/716.webp" alt="Drive Ahead Sports Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Drive Ahead Sports</h2>
+          <p class="card-description">Want to begin a pixelated sports showdown like no other? In Drive Ahead! Sports, you’ll be behind the wheel of amazing vehicles, engaging in exciting soccer matches! Enjoy the rush of driving and the fun of the game! Use your skills to kick the ball, attack the opponent's goal, and aim for victory!</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+          </div>
+          <a href="drive-ahead-sports.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Football Stars Championship -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/730.webp" alt="Football Stars Championship Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Football Stars Championship</h2>
+          <p class="card-description">Try a fresh take on a football game! The luck-based gameplay will keep you on your toes. Score extra points with precise shots that avoid the goalkeeper perfectly.</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+          </div>
+          <a href="football-stars-championship.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Archery Legends -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/739.webp" alt="Archery Legends Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Archery Legends</h2>
+          <p class="card-description">This is a game with many levels and two modes Classic and Adventure. Test your archery prowess in this level based game. Aim and shoot the bull's eye to score the most. This is a fun casual game.</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+          </div>
+          <a href="archery-legends.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Base Jump Wingsuit Flying -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/790.webp" alt="Base Jump Wingsuit Flying Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Base Jump Wingsuit Flying</h2>
+          <p class="card-description">Spread your wings and start flying like you’ve never been before!
+
+Base Jump Wing Suit Flying allows you to take part in awesome and exciting extreme sports. Use Wingsuit to jump and fly over multiple cool environments and beat your high scores! This is the new kind of arcade flight experience!</p>
+          <div class="tag-container">
+            <span class="tag">Sports</span>
+<span class="tag">Agility</span>
+          </div>
+          <a href="base-jump-wingsuit-flying.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+    </div>
+    
+  </div>
+
+  <footer>
+      <nav class="categories-nav">
+    <div class="categories-container">
+      <a href="index.html" class="category-link ">All Games</a>
+      <a href="category-io.html" class="category-link ">.IO</a>
+      <a href="category-adventure.html" class="category-link ">Adventure</a>
+      <a href="category-agility.html" class="category-link ">Agility</a>
+      <a href="category-art.html" class="category-link ">Art</a>
+      <a href="category-basketball.html" class="category-link ">Basketball</a>
+      <a href="category-battle.html" class="category-link ">Battle</a>
+      <a href="category-boardgames.html" class="category-link ">Boardgames</a>
+      <a href="category-bubble-shooter.html" class="category-link ">Bubble Shooter</a>
+      <a href="category-cards.html" class="category-link ">Cards</a>
+      <a href="category-care.html" class="category-link ">Care</a>
+      <a href="category-casual.html" class="category-link ">Casual</a>
+      <a href="category-cooking.html" class="category-link ">Cooking</a>
+      <a href="category-dress-up.html" class="category-link ">Dress-up</a>
+      <a href="category-educational.html" class="category-link ">Educational</a>
+      <a href="category-football.html" class="category-link ">Football</a>
+      <a href="category-mahjong-connect.html" class="category-link ">Mahjong & Connect</a>
+      <a href="category-match-3.html" class="category-link ">Match-3</a>
+      <a href="category-merge.html" class="category-link ">Merge</a>
+      <a href="category-puzzle.html" class="category-link ">Puzzle</a>
+      <a href="category-quiz.html" class="category-link ">Quiz</a>
+      <a href="category-racing-driving.html" class="category-link ">Racing & Driving</a>
+      <a href="category-shooter.html" class="category-link ">Shooter</a>
+      <a href="category-simulation.html" class="category-link ">Simulation</a>
+      <a href="category-sports.html" class="category-link active">Sports</a>
+      <a href="category-strategy.html" class="category-link ">Strategy</a>
+    </div>
+  </nav>
+    <p style="margin-top: 15px;">&copy; 2026 Sports Games. Deployed on zapcade.github.io.</p>
+    <div class="footer-links" style="margin-top: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; align-items: center;">
+  <a href="contact.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Contact Us</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="privacy.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="terms.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
+</div>
+
+  </footer>
+
+  <script src="ads-manager.js" defer></script>
+  <script src="search.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const topNavToggle = document.getElementById('topNavToggle');
+      const topNavMenu = document.getElementById('topNavMenu');
+      if (topNavToggle && topNavMenu) {
+        topNavToggle.addEventListener('click', () => {
+          topNavMenu.classList.toggle('open');
+          topNavToggle.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

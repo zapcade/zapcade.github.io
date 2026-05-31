@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dress-up Games | Play Free Online | zapcade</title>
+  <meta name="description" content="Play the best free Dress-up games online on zapcade. Page 1 of our curated collection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(22, 28, 45, 0.7);
+      --accent: #6c5ce7;
+      --accent-glow: rgba(108, 92, 231, 0.4);
+      --text-white: #ffffff;
+      --text-gray: #a0aec0;
+      --neon-green: #00f2fe;
+      --neon-pink: #ff007f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top, #1a1b36 0%, var(--bg-dark) 70%);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Top Navbar Styles */
+    .top-navbar {
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .top-nav-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .top-nav-logo span {
+      -webkit-text-fill-color: initial;
+    }
+
+    .top-nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-nav-item {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav-item:hover, .top-nav-item.active {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Dropdown Styles */
+    .top-nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .top-nav-dropdown-btn {
+      background: none;
+      border: none;
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .top-nav-dropdown-btn:hover, .top-nav-dropdown.active .top-nav-dropdown-btn {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .top-nav-dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: #111519;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      z-index: 1010;
+      padding: 8px 0;
+      margin-top: 5px;
+    }
+
+    .top-nav-dropdown-content a {
+      color: var(--text-gray);
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .top-nav-dropdown-content a:hover, .top-nav-dropdown-content a.active {
+      color: var(--text-white);
+      background: var(--accent);
+    }
+
+    .top-nav-dropdown:hover .top-nav-dropdown-content {
+      display: block;
+    }
+
+    /* Toggle button for Mobile */
+    .top-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1020;
+    }
+
+    .top-nav-toggle .toggle-bar {
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      padding: 15px 20px 8px;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      display: none;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Categories Navigation inside Footer */
+    .categories-nav {
+      padding: 15px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .categories-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .category-link {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .category-link:hover, .category-link.active {
+      color: var(--text-white);
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      box-shadow: 0 0 40px var(--accent-glow);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .thumbnail-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      background: #000;
+    }
+
+    .thumbnail-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover .thumbnail-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-white);
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .play-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--accent);
+      color: var(--text-white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+    }
+
+    .play-btn:hover {
+      background: #7d6ef9;
+      box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    }
+
+    .play-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .page-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .page-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .page-link.active {
+      background: var(--accent);
+      color: var(--text-white);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .page-link.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .page-arrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-gray);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav-toggle {
+        display: flex;
+      }
+
+      .top-nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 70px);
+        background: #0b0f19;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 30px 20px;
+        gap: 10px;
+        transition: right 0.3s ease;
+        z-index: 999;
+      }
+
+      .top-nav-menu.open {
+        right: 0;
+      }
+
+      .top-nav-item, .top-nav-dropdown-btn {
+        width: 100%;
+        text-align: left;
+        padding: 12px 15px;
+      }
+
+      .top-nav-dropdown-content {
+        position: static;
+        display: block;
+        background: rgba(255, 255, 255, 0.02);
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        margin-top: 0;
+        padding-left: 15px;
+      }
+
+      .top-nav-toggle.active .toggle-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(2) {
+        opacity: 0;
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+      .subtitle {
+        font-size: 0.8rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="top-navbar">
+    <div class="top-nav-container">
+      <a href="index.html" class="top-nav-logo">
+        <span>🎮</span> zapcade
+      </a>
+
+      <button class="top-nav-toggle" id="topNavToggle" aria-label="Toggle menu">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+      <div class="top-nav-menu" id="topNavMenu">
+        <a href="index.html" class="top-nav-item ">Home</a>
+        <a href="category-casual.html" class="top-nav-item ">Casual</a>
+        <a href="category-puzzle.html" class="top-nav-item ">Puzzle</a>
+        <a href="category-adventure.html" class="top-nav-item ">Adventure</a>
+        <a href="category-simulation.html" class="top-nav-item ">Simulation</a>
+        <a href="category-agility.html" class="top-nav-item ">Agility</a>
+        <a href="category-racing-driving.html" class="top-nav-item ">Racing & Driving</a>
+        <div class="top-nav-dropdown active">
+          <button class="top-nav-dropdown-btn">More ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="category-shooter.html" class="">Shooter</a>
+            <a href="category-battle.html" class="">Battle</a>
+            <a href="category-match-3.html" class="">Match-3</a>
+            <a href="category-dress-up.html" class="active">Dress-up</a>
+            <a href="category-strategy.html" class="">Strategy</a>
+            <a href="category-io.html" class="">.IO</a>
+            <a href="category-merge.html" class="">Merge</a>
+            <a href="category-sports.html" class="">Sports</a>
+            <a href="category-bubble-shooter.html" class="">Bubble Shooter</a>
+            <a href="category-mahjong-connect.html" class="">Mahjong & Connect</a>
+            <a href="category-educational.html" class="">Educational</a>
+            <a href="category-cards.html" class="">Cards</a>
+            <a href="category-boardgames.html" class="">Boardgames</a>
+            <a href="category-quiz.html" class="">Quiz</a>
+            <a href="category-football.html" class="">Football</a>
+            <a href="category-basketball.html" class="">Basketball</a>
+            <a href="category-care.html" class="">Care</a>
+            <a href="category-art.html" class="">Art</a>
+            <a href="category-cooking.html" class="">Cooking</a>
+          </div>
+        </div>
+        <div class="top-nav-dropdown ">
+          <button class="top-nav-dropdown-btn">About ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="contact.html" class="">Contact Us</a>
+            <a href="privacy.html" class="">Privacy Policy</a>
+            <a href="terms.html" class="">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Dress-up Games</h1>
+    <p class="subtitle">Play the best free Dress-up games online on zapcade. Page 1 of our curated collection.</p>
+  </header>
+
+    <!-- Dedicated Search Bar Row -->
+  <div class="search-bar-row">
+    <div class="search-bar-row-container">
+      <input type="text" id="searchInput" placeholder="Search for your favorite games..." autocomplete="off">
+      <div id="searchSuggestions" class="search-suggestions"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+            <!-- Card: Ellie and Friends Venice Carnival -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/310.webp" alt="Ellie and Friends Venice Carnival Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Ellie and Friends Venice Carnival</h2>
+          <p class="card-description">Step into the glamorous world of Venice Carnival Dressup with Ellie and Friends Venice Carnival, where you can join Ellie and her friends at one of the most extravagant events of the year. The Venice Carnival is all about stunning masks, luxurious costumes, and endless glamour, and now you get to help Ellie and her friends get ready for the big celebration! Design unique looks and create the perfect carnival style with a variety of costumes, accessories, and masks.</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="ellie-and-friends-venice-carnival.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: K-Wedding Dream -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/387.webp" alt="K-Wedding Dream Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">K-Wedding Dream</h2>
+          <p class="card-description">Immerse yourself in the atmosphere of Korean love with the heroes of this dressup-game. Become a part of a magical story where bright K-Pop stars are preparing for the most important day of their lives - Wedding day! Combine tradition and modern fashion by creating wedding looks for lovers. Choose the perfect makeup, hairstyle and jewelry to highlight their unique style and charm. Let each of your choices reflect the emotions and dreams of the characters, turning this day into a real fairy tale!</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="k-wedding-dream.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Ellie Christmas Makeup -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/391.webp" alt="Ellie Christmas Makeup Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Ellie Christmas Makeup</h2>
+          <p class="card-description">Experience the joy of festive makeovers with Ellie Christmas Makeup game! This fun, holiday game lets you guide Ellie to create three Christmas-themed makeup looks: Candy Cane Queen, Christmas Queen, and iconic character-inspired. Perfect for makeup lovers and enthusiasts of holiday-themed games alike, this girl game takes you on a journey filled with creativity, color, and Christmas cheer! Craft Ellie's look using assorted eyeshadows, lipsticks, patterned blushes, accessories, and more.</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="ellie-christmas-makeup.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Back 2 School Makeover -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/411.webp" alt="Back 2 School Makeover Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Back 2 School Makeover</h2>
+          <p class="card-description">Embrace the nostalgia and dive into our Back 2 School Makeover game, where you can fashionably express yourself, experiment with stunning looks, and relish into the feeling of heading back to school with style! Embark on a fabulous journey with our character, Amelia, as she transforms from an edgy e-girl to a chic, school-ready fashionista. Revamp her entire look starting with a haircare routine and a new haircut, a complete skincare routine, and a new, school makeup.</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="back-2-school-makeover.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Makeup Fruits -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/429.webp" alt="Makeup Fruits Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Makeup Fruits</h2>
+          <p class="card-description">In Makeup Fruits, give your favorite fruits a stunning makeover! Apply makeup, add accessories, and create fabulous fruit beauty icons. Choose from a variety of makeup options, including powder, lipstick, and eyelashes. Take a "selfie" of your creation and share it with friends! Earn gems to unlock even more fun items and keep the transformation going!</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="makeup-fruits.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Funny Fever Hospital -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/443.webp" alt="Funny Fever Hospital Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Funny Fever Hospital</h2>
+          <p class="card-description">Join Ruby, a schoolgirl battling a unique lung virus, in Funny Fever Hospital! Diagnose, operate, and dress her for the cosplay competition. Cure her, and she'll thank you with a dazzling dress-up session! Experience medical fun and fashion in one pet-tastic game!</p>
+          <div class="tag-container">
+            <span class="tag">Care</span>
+<span class="tag">Dress-up</span>
+          </div>
+          <a href="funny-fever-hospital.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Eye Art Perfect Makeup Artist -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/529.webp" alt="Eye Art Perfect Makeup Artist Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Eye Art Perfect Makeup Artist</h2>
+          <p class="card-description">Eye Art Perfect Makeup Artist is a very sophisticated makeup game. This game has an eye makeup  theme that is very targeted. This game has 26 levels, which means there are 26 types of eye makeup  for you to choose from. No matter what style of makeup you prefer, you can find one that satisfies  you in this game. Want to know more about this game?</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="eye-art-perfect-makeup-artist.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Makeup Trends: Then And Now -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/535.webp" alt="Makeup Trends: Then And Now Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Makeup Trends: Then And Now</h2>
+          <p class="card-description">Step into the exciting world of makeup transformations with  Makeup Trends: Then And Now! Join influencer Kiki as you explore the evolution of beauty trends from the early 2000s to 2024. Experiment with y2k-VSCO and emo-euphoria dark looks, mixing vibrant eyeshadows, bold lip colors, and edgy styles. Customize unique hairstyles and accessories to complete your makeup looks. With endless possibilities to mix and match, become a beauty trendsetter in this fun and engaging game for girls.</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="makeup-trends-then-and-now.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Fury of the Steampunk Princess -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/536.webp" alt="Fury of the Steampunk Princess Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Fury of the Steampunk Princess</h2>
+          <p class="card-description">Welcome to the world of the future, where style and survival go hand in hand. Help the girl create unique outfits that combine elements of post-apocalyptic chaos and steampunk technology. From armored corsets to steam accessories - the possibilities for customizing clothes in the game are extensive. Get a boost of energy for creativity and self-expression in a world where, even after the end of the world, style remains important for survival!</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="fury-of-the-steampunk-princess.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Furry Wedding Proposal -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/563.webp" alt="Furry Wedding Proposal Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Furry Wedding Proposal</h2>
+          <p class="card-description">Hi, young stylist! You will find a very unusual couple in love - a brutal fox and a feminine bunny - who are preparing for their future wedding. They dream of looking stunning on this holiday and you will become their main assistant in this exciting adventure! You have to dress the characters in beautiful wedding dresses, choose stylish hairstyles for them and apply light makeup. Create, fantasize and create a fairy tale!</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="furry-wedding-proposal.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Lulus Fashion World -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/601.webp" alt="Lulus Fashion World Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Lulus Fashion World</h2>
+          <p class="card-description">Welcome to Lulu’s Fashion World. Can you battle to become the top fashion designer? Collect stars, progress through cities and events. Choose from clothes you own from plenty categories. Style outfits your way and save them to use whenever you like. The combinations of clothing and makeup are at your fingertips to experiment and create unique trends that could become the new fashion trend. Experiment with new looks and create a fad. So, are you ready to be the new fashion icon ?</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Dress-up</span>
+          </div>
+          <a href="lulus-fashion-world.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Black pink Black Friday Fever -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/666.webp" alt="Black pink Black Friday Fever Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Black pink Black Friday Fever</h2>
+          <p class="card-description">Blackpink Black Friday Fever is a fun dress-up game designed for K-pop and Blackpink fans! Dive into the world of style by creating unique looks for Jisoo, Jennie, Rosé, and Lisa, inspired by Black Friday’s biggest fashion trends. As a fan, you’ll get to style each member of Blackpink with a range of outfits and accessories that perfectly suit their personalities.</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="black-pink-black-friday-fever.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Anime Doll - DIY Cosplay Girl -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/776.webp" alt="Anime Doll - DIY Cosplay Girl Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Anime Doll - DIY Cosplay Girl</h2>
+          <p class="card-description">Dive into the enchanting world of Anime Doll - DIY Cosplay Girl, where you can live out your fashion dreams and become a master of anime dress-up!</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="anime-doll-diy-cosplay-girl.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: BFFs Golden Hour -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/779.webp" alt="BFFs Golden Hour Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">BFFs Golden Hour</h2>
+          <p class="card-description">Fall is here and the BFFs decided to take the perfect photos with their Instagram-worthy makeup and outfits. Elsa, Ellie, Kiki, and Regina are all in charge of getting amazing images for their fall aesthetics album, so make sure you come and join them in their BFFs Golden Hour dress up game for girls! Help them get ready by dressing them up with a variety of beautiful outfits, accessories and makeup styles then snap the most instagrammable pictures you need for their album. Enjoy playing!</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="bffs-golden-hour.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Kitty Couple Lovely Valentine -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/793.webp" alt="Kitty Couple Lovely Valentine Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Kitty Couple Lovely Valentine</h2>
+          <p class="card-description">Celebrate love with the adorable kitty duo Angela and Tom in Kitty Couple Lovely Valentine. This charming game takes players on a delightful journey filled with fashion, hidden surprises, and puzzles. Help the cute couple prepare for their special Valentine’s Day by dressing them up, uncovering hidden hearts, and completing their couple photo puzzle.</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="kitty-couple-lovely-valentine.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: TicToc Braided Hairstyles -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/796.webp" alt="TicToc Braided Hairstyles Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">TicToc Braided Hairstyles</h2>
+          <p class="card-description">Do you want to get in on the coolest hairstyles out there? We've got a braided hair game that'll blow your mind. Meet our two main characters: Regina and Kiki. They're here to show you the hippest braids around—and Brian, the hairstylist who will create them, will tell you how it's done. Once you've got the perfect braid for your girl, customize it even more! And when you're done with the hair, dress your girl up in some cute clothes! This is your moment to shine, what are you waiting for?</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="tictoc-braided-hairstyles.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Anime Couple: Avatar Maker -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/797.webp" alt="Anime Couple: Avatar Maker Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Anime Couple: Avatar Maker</h2>
+          <p class="card-description">Anime Couple: Avatar Maker is your ultimate creative escape into the world of anime character design. Craft stunning anime couples with romantic flair, dress up stylish girl avatars, and mix and match accessories, hairstyles, and outfits. With relaxing ASMR touches and a vibrant anime art style, this avatar creator lets your imagination shine in every love-filled duo you design.</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Dress-up</span>
+          </div>
+          <a href="anime-couple-avatar-maker.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Wednesday Dark Academia -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/799.webp" alt="Wednesday Dark Academia Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Wednesday Dark Academia</h2>
+          <p class="card-description">With Wednesday Dark Academia, you can choose from various unique and stylish outfits, accessories, and makeup options. Start with her makeup, creating a look that's perfect for school or the ballroom. Play dark lipstick and eyeshadow, and with a little bit of imagination, you can create a look that's all your own. Next, dress her up for a fun day at school, and then see what party look you can put together for her. Style her hair and pick the right accessories for a complete look.</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="wednesday-dark-academia.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Lost Puppy Rescue and Care -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/812.webp" alt="Lost Puppy Rescue and Care Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Lost Puppy Rescue and Care</h2>
+          <p class="card-description">Welcome to Lost Puppy Rescue and Care. A small pup is lost in the rain, cold and alone. He’s not sure who to trust—but with your care, that starts to change. Gently clean him up, feed him, and help him feel safe again. This calm, story-like game is all about kindness, connection, and giving one little dog a second chance.</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="lost-puppy-rescue-and-care.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Princesses at Horror School -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/839.webp" alt="Princesses at Horror School Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Princesses at Horror School</h2>
+          <p class="card-description">In this game you will meet two charming monster girls who study at a school for young monsters. Every morning, the girls carefully think over their images, mixing elements of a classic princess and a creepy monster. Girls have different fashion preferences, but they have one thing in common - these two unusual girlfriends always attract the admiring glances of classmates. After all, they are not just princesses, but real monsters whose terrifying style makes even the bravest tremble!</p>
+          <div class="tag-container">
+            <span class="tag">Dress-up</span>
+          </div>
+          <a href="princesses-at-horror-school.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+    </div>
+    <div class="pagination"><span class="page-link disabled">&laquo; Prev</span><span class="page-link active">1</span><a href="category-dress-up-2.html" class="page-link">2</a><a href="category-dress-up-2.html" class="page-link page-arrow">Next &raquo;</a></div>
+  </div>
+
+  <footer>
+      <nav class="categories-nav">
+    <div class="categories-container">
+      <a href="index.html" class="category-link ">All Games</a>
+      <a href="category-io.html" class="category-link ">.IO</a>
+      <a href="category-adventure.html" class="category-link ">Adventure</a>
+      <a href="category-agility.html" class="category-link ">Agility</a>
+      <a href="category-art.html" class="category-link ">Art</a>
+      <a href="category-basketball.html" class="category-link ">Basketball</a>
+      <a href="category-battle.html" class="category-link ">Battle</a>
+      <a href="category-boardgames.html" class="category-link ">Boardgames</a>
+      <a href="category-bubble-shooter.html" class="category-link ">Bubble Shooter</a>
+      <a href="category-cards.html" class="category-link ">Cards</a>
+      <a href="category-care.html" class="category-link ">Care</a>
+      <a href="category-casual.html" class="category-link ">Casual</a>
+      <a href="category-cooking.html" class="category-link ">Cooking</a>
+      <a href="category-dress-up.html" class="category-link active">Dress-up</a>
+      <a href="category-educational.html" class="category-link ">Educational</a>
+      <a href="category-football.html" class="category-link ">Football</a>
+      <a href="category-mahjong-connect.html" class="category-link ">Mahjong & Connect</a>
+      <a href="category-match-3.html" class="category-link ">Match-3</a>
+      <a href="category-merge.html" class="category-link ">Merge</a>
+      <a href="category-puzzle.html" class="category-link ">Puzzle</a>
+      <a href="category-quiz.html" class="category-link ">Quiz</a>
+      <a href="category-racing-driving.html" class="category-link ">Racing & Driving</a>
+      <a href="category-shooter.html" class="category-link ">Shooter</a>
+      <a href="category-simulation.html" class="category-link ">Simulation</a>
+      <a href="category-sports.html" class="category-link ">Sports</a>
+      <a href="category-strategy.html" class="category-link ">Strategy</a>
+    </div>
+  </nav>
+    <p style="margin-top: 15px;">&copy; 2026 Dress-up Games. Deployed on zapcade.github.io.</p>
+    <div class="footer-links" style="margin-top: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; align-items: center;">
+  <a href="contact.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Contact Us</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="privacy.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="terms.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
+</div>
+
+  </footer>
+
+  <script src="ads-manager.js" defer></script>
+  <script src="search.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const topNavToggle = document.getElementById('topNavToggle');
+      const topNavMenu = document.getElementById('topNavMenu');
+      if (topNavToggle && topNavMenu) {
+        topNavToggle.addEventListener('click', () => {
+          topNavMenu.classList.toggle('open');
+          topNavToggle.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
